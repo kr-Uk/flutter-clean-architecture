@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:more_app/presentation/pages/home/home_page.dart';
+import 'package:more_app/presentation/pages/login/login_page.dart';
 import 'package:more_app/presentation/pages/splash/splash_page.dart';
 
 abstract class AppRoutes {
@@ -15,6 +15,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.splash,
       builder: (context, state) => const SplashPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.login,
+      builder: (context, state) => const LoginPage(),
     ),
     GoRoute(
       path: AppRoutes.home,

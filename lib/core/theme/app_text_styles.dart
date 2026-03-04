@@ -2,46 +2,56 @@ import 'package:flutter/material.dart';
 import 'package:more_app/core/theme/app_colors.dart';
 
 abstract class AppTextStyles {
-  static const TextStyle heading1 = TextStyle(
-    fontSize: 28,
+  static const String _fontFamily = 'MemomentKkukkukk';
+
+  // Title · 30/Auto
+  static const TextStyle title = TextStyle(
+    fontFamily: _fontFamily,
+    fontSize: 30,
     fontWeight: FontWeight.w700,
-    color: AppColors.textPrimary,
+    color: AppColors.black,
   );
 
-  static const TextStyle heading2 = TextStyle(
+  // Head-1 · 24/Auto
+  static const TextStyle head1 = TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 24,
-    fontWeight: FontWeight.w600,
-    color: AppColors.textPrimary,
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
   );
 
-  static const TextStyle heading3 = TextStyle(
+  // Head-2 · 20/Auto
+  static const TextStyle head2 = TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 20,
     fontWeight: FontWeight.w600,
-    color: AppColors.textPrimary,
+    color: AppColors.black,
   );
 
+  // Body-1 · 14/22
   static const TextStyle body1 = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w400,
-    color: AppColors.textPrimary,
-  );
-
-  static const TextStyle body2 = TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 14,
+    height: 22 / 14,
     fontWeight: FontWeight.w400,
-    color: AppColors.textSecondary,
+    color: AppColors.black,
   );
 
+  // Caption · 13/17
   static const TextStyle caption = TextStyle(
-    fontSize: 12,
+    fontFamily: _fontFamily,
+    fontSize: 13,
+    height: 17 / 13,
     fontWeight: FontWeight.w400,
-    color: AppColors.textSecondary,
+    color: AppColors.gray2,
   );
 
-  // 금액 표시용
-  static const TextStyle amount = TextStyle(
-    fontSize: 32,
-    fontWeight: FontWeight.w700,
-    color: AppColors.textPrimary,
+  // Caption 2 · 11/17
+  static const TextStyle caption2 = TextStyle(
+    fontFamily: _fontFamily,
+    fontSize: 11,
+    height: 17 / 11,
+    fontWeight: FontWeight.w400,
+    color: AppColors.gray2,
   );
 }

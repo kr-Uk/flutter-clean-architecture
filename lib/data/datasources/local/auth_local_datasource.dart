@@ -1,6 +1,8 @@
 abstract class AuthLocalDataSource {
-  Future<void> saveToken(String token);
-  Future<String?> getToken();
-  Future<void> deleteToken();
-  Future<bool> hasToken();
+  Future<void> saveAccessToken(String token);
+  Future<void> saveRefreshToken(String token);
+  Future<String?> getAccessToken();
+  Future<String?> getRefreshToken();
+  Future<void> deleteTokens();
+  Future<bool> hasTokens();
 }

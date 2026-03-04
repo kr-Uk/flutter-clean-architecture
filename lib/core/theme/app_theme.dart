@@ -2,29 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:more_app/core/theme/app_colors.dart';
 
 abstract class AppTheme {
+  static const String _fontFamily = 'MemomentKkukkukk';
+
   static ThemeData get light => ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
+    fontFamily: _fontFamily,
     colorSchemeSeed: AppColors.primary,
-    scaffoldBackgroundColor: AppColors.background,
+    scaffoldBackgroundColor: AppColors.mainBg,
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.surface,
-      foregroundColor: AppColors.textPrimary,
+      backgroundColor: AppColors.mainBg,
+      foregroundColor: AppColors.black,
       elevation: 0,
       centerTitle: true,
     ),
     cardTheme: CardThemeData(
-      color: AppColors.surface,
+      color: AppColors.mainBg,
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: const BorderSide(color: AppColors.border),
+        side: const BorderSide(color: AppColors.gray1),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
+        foregroundColor: AppColors.white,
         minimumSize: const Size(double.infinity, 52),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
@@ -33,14 +36,14 @@ abstract class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: AppColors.surface,
+      fillColor: AppColors.mainBg,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.border),
+        borderSide: const BorderSide(color: AppColors.gray1),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.border),
+        borderSide: const BorderSide(color: AppColors.gray1),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),

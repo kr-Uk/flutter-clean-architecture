@@ -1,41 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:more_app/core/theme/app_colors.dart';
+import 'package:more_app/core/theme/app_text_styles.dart';
 import 'package:more_app/presentation/navigation/app_router.dart';
+import 'package:more_app/presentation/viewmodels/auth_viewmodel.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  ConsumerState<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashPageState extends ConsumerState<SplashPage> {
   @override
   void initState() {
     super.initState();
-    _navigateToNext();
+    _checkAutoLogin();
   }
 
-  Future<void> _navigateToNext() async {
+  Future<void> _checkAutoLogin() async {
+    // 스플래시 최소 표시 시간
     await Future.delayed(const Duration(seconds: 2));
-    if (mounted) {
+
+    // 자동 로그인 시도
+    await ref.read(authViewModelProvider.notifier).autoLogin();
+
+    if (!mounted) return;
+
+    final state = ref.read(authViewModelProvider);
+    if (state is AuthAuthenticated) {
       context.go(AppRoutes.home);
+    } else {
+      context.go(AppRoutes.login);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: AppColors.primary,
+    return Scaffold(
+      backgroundColor: AppColors.mainBg,
       body: Center(
-        child: Text(
-          'MORE',
-          style: TextStyle(
-            fontSize: 48,
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset('assets/images/applogo.png', width: 120, height: 120),
+            const SizedBox(height: 16),
+            Text('모아', style: AppTextStyles.title),
+          ],
         ),
       ),
     );
