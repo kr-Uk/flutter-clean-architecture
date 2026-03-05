@@ -1,3 +1,4 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kakao_flutter_sdk_user/kakao_flutter_sdk_user.dart';
 import 'package:more_app/data/datasources/local/auth_local_datasource.dart';
@@ -15,7 +16,8 @@ class AuthRepositoryImpl implements AuthRepository {
     required this.remoteDataSource,
     required this.localDataSource,
     GoogleSignIn? googleSignIn,
-  }) : _googleSignIn = googleSignIn ?? GoogleSignIn();
+  }) : _googleSignIn = googleSignIn ??
+            GoogleSignIn(serverClientId: dotenv.env['GOOGLE_CLIENT_ID']);
 
   @override
   Future<domain.User> loginWithKakao() async {
