@@ -3,11 +3,6 @@
 .env.*
 !.env.example
 
-# Signing keys
-android/key.properties
-*.jks
-*.keystore
-
 # Local machine settings
 android/local.properties
 
